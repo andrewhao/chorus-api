@@ -35,11 +35,15 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+gem 'active_model_serializers'
+
 # Use unicorn as the app server
 gem 'unicorn'
 
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
+
+gem 'rspec-rails', group: :test
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
