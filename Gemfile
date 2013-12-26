@@ -40,10 +40,16 @@ gem 'active_model_serializers'
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
 
-gem 'rspec-rails', group: :test
+group :development do
+  # Use Capistrano for deployment
+  gem 'capistrano'
+  gem "guard-rspec", require: false
+end
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'rspec-rails'
+  # Use debugger
+  gem 'debugger'
+  gem 'pry'
+end
