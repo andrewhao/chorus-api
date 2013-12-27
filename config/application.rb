@@ -19,5 +19,23 @@ module HendrixApi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.middleware.use Rack::Cors do
+      allow do
+        origins 'localhost:3000', '127.0.0.1:3000',
+        /http:\/\/localhost\/(:\d+)?/
+        # regular expressions can be used here
+
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :put, :delete, :options, :patch]
+
+      end
+
+      allow do
+        origins '*'
+        resource '/public/*', :headers => :any, :methods => :get
+      end
+    end
   end
 end

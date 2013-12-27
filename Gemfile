@@ -40,6 +40,8 @@ gem 'active_model_serializers'
 # Use unicorn as the app server
 gem 'unicorn'
 
+# Allow out-of-domain requests.
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   # Use Capistrano for deployment
