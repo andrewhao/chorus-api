@@ -77,7 +77,7 @@ describe SetListsController do
         set_list = SetList.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         SetList.any_instance.stub(:save).and_return(false)
-        put :update, {:id => set_list.to_param, :set_list => { :badparam => "hello"  }}, valid_session
+        put :update, {:id => set_list.to_param, :set_list => { :badparam => "hello" }, :format => "json"}, valid_session
         assigns(:set_list).should eq(set_list)
       end
     end
