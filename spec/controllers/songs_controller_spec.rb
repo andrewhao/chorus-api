@@ -69,19 +69,25 @@ describe SongsController do
   end
 
   describe "PUT update" do
+    let(:song) { Song.create! valid_attributes }
+
     describe "with valid params" do
-      it "updates the requested song" do
-        song = Song.create! valid_attributes
-
-        expect {
-          put :update, {:id => song.to_param, :song => { "title" => "params" }, :format => "json"}, valid_session
-        }.to change{ song.reload.title }.from(song.title).to("params")
-      end
-
       it "assigns the requested song as @song" do
-        song = Song.create! valid_attributes
         put :update, {:id => song.to_param, :song => valid_attributes, :format => "json"}, valid_session
         assigns(:song).should eq(song)
+      end
+
+      {:key => "X",
+       :title => "Cool song",
+       :description => "Every fourth set",
+       :raw_text => "E A B\nLet's go!"}.each do |attr, val|
+        it "updates the song attribute #{attr}" do
+          song
+
+          expect {
+            put :update, {:id => song.to_param, :song => {attr => val}, :format => "json"}
+          }.to change{ song.reload.send(attr) }.to(val)
+        end
       end
     end
 
