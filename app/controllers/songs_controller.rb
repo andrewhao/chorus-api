@@ -34,6 +34,9 @@ class SongsController < ApplicationController
     Song.find params[:id]
   end
 
+  def has_set_list?
+  end
+
   def song_params
     params.require(:song).permit(:title, :description, :key, :raw_text)
   end

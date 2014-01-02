@@ -30,6 +30,5 @@ describe SetListsController do
     it "routes to #destroy" do
       delete("/set_lists/1").should route_to("set_lists#destroy", :id => "1")
     end
-
   end
 end

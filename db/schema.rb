@@ -20,17 +20,18 @@ ActiveRecord::Schema.define(version: 20131226115728) do
     t.datetime "updated_at"
   end
 
+  add_index "set_list_to_songs", ["set_list_id", "song_id"], name: "index_set_list_to_songs_on_set_list_id_and_song_id", unique: true
   add_index "set_list_to_songs", ["set_list_id"], name: "index_set_list_to_songs_on_set_list_id"
   add_index "set_list_to_songs", ["song_id"], name: "index_set_list_to_songs_on_song_id"
 
   create_table "set_lists", force: true do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "songs", force: true do |t|
-    t.string   "title"
+    t.string   "title",       null: false
     t.string   "description"
     t.string   "key"
     t.string   "raw_text"
