@@ -1,6 +1,8 @@
 HendrixApi::Application.routes.draw do
   resources :songs
-  resources :set_lists
+  resources :set_lists do
+    resources :songs, :controller => :set_list_songs
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
