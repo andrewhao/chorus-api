@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe SetListSongsController do
-  let(:set_list) { SetList.create :songs => songs }
-  let(:song) { Song.create }
+  let(:set_list) { FactoryGirl.create :set_list, :songs => songs }
+  let(:song) { FactoryGirl.create :song }
   let(:songs) { [song] }
 
   describe "#index" do
@@ -12,7 +12,7 @@ describe SetListSongsController do
     end
 
     it "returns an empty array if no songs are in the set list" do
-      empty_set = SetList.create
+      empty_set = FactoryGirl.create :set_list
       get :index, :set_list_id => empty_set.id, :format => "json"
       assigns(:songs).should == []
     end

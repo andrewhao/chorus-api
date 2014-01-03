@@ -49,6 +49,10 @@ group :development do
   gem "guard-rspec", require: false
 end
 
+group :test do
+  gem "factory_girl_rails", "~> 4.0"
+end
+
 group :development, :test do
   gem 'rspec-rails'
   # Use debugger
