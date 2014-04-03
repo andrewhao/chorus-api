@@ -43,6 +43,8 @@ gem 'unicorn'
 # Allow out-of-domain requests.
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'rails_12factor', :group => :production
+
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano'
