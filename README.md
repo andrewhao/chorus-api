@@ -1,4 +1,4 @@
-hendrix-api
+chorus-api
 ===========
 
 [![Build Status](https://travis-ci.org/andrewhao/chorus-api.png?branch=master)](https://travis-ci.org/andrewhao/chorus-api)
